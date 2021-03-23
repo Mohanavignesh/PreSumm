@@ -124,13 +124,14 @@ class Bert(nn.Module):
         super(Bert, self).__init__()
         self.other_bert = other_bert
         if(large):
-            self.model = BertModel.from_pretrained('bert-large-uncased', cache_dir=temp_dir)
+            
+            self.model = MobileBertModel.from_pretrained('../prev_trained_model/mobilebert')
 
         ### Start Modifying ###
         elif other_bert == 'distilbert':
             self.model = DistilBertModel.from_pretrained('distilbert-base-uncased', cache_dir=temp_dir)
-        elif other_bert == 'mobilebert':
-            self.model = MobileBertModel.from_pretrained('../../MobileBert_PyTorch/prev_trained_model/mobilebert')
+        elif other_bert == 'bertbase':
+            self.model =  BertModel.from_pretrained('bert-large-uncased', cache_dir=temp_dir)
         ### End Modifying ###
 
         else:

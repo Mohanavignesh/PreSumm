@@ -122,16 +122,15 @@ def get_generator(vocab_size, dec_hidden_size, device):
 class Bert(nn.Module):
     def __init__(self, large, temp_dir, finetune=False, other_bert=None):
         super(Bert, self).__init__()
-        #self.other_bert = other_bert
+        self.other_bert = other_bert
         if(large):
             
-            self.model = MobileBertModel.from_pretrained('../PreSumm/src/prev_trained_model/mobilebert/')
-
+            self.model = BertModel.from_pretrained('bert-large-uncased', cache_dir=temp_dir)
         ### Start Modifying ###
-        #elif other_bert == 'distilbert':
-            #self.model = DistilBertModel.from_pretrained('distilbert-base-uncased', cache_dir=temp_dir)
-        #elif other_bert == 'bertbase':
-            #self.model =  BertModel.from_pretrained('bert-large-uncased', cache_dir=temp_dir)
+        elif other_bert == 'distilbert':
+            self.model = DistilBertModel.from_pretrained('distilbert-base-uncased', cache_dir=temp_dir)
+        elif other_bert == 'bertbase':
+            self.model =  MobileBertModel.from_pretrained('../PreSumm/src/prev_trained_model/mobilebert/')
         ### End Modifying ###
 
         else:

@@ -125,7 +125,7 @@ class Bert(nn.Module):
         #self.other_bert = other_bert
         if(large):
             
-            self.model = MobileBertModel.from_pretrained('../src/prev_trained_model/mobilebert')
+            self.model = MobileBertModel.from_pretrained('../src/prev_trained_model/mobilebert/config.json')
 
         ### Start Modifying ###
         #elif other_bert == 'distilbert':
@@ -135,7 +135,7 @@ class Bert(nn.Module):
         ### End Modifying ###
 
         else:
-            self.model =  MobileBertModel.from_pretrained('../src/prev_trained_model/mobilebert')
+            self.model =  MobileBertModel.from_pretrained('../src/prev_trained_model/mobilebert/config.json')
 
         self.finetune = finetune
 

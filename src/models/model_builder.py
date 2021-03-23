@@ -135,7 +135,7 @@ class Bert(nn.Module):
         ### End Modifying ###
 
         else:
-            self.model =  MobileBertModel.from_src.Prev_trained_model('mobilebert')
+            self.model =  MobileBertModel.from_src.prev_trained_model('mobilebert')
 
         self.finetune = finetune
 

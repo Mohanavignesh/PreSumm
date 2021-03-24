@@ -130,8 +130,8 @@ class Bert(nn.Module):
         elif other_bert == 'distilbert':
             self.model = DistilBertModel.from_pretrained('distilbert-base-uncased', cache_dir=temp_dir)
         elif other_bert == 'bertbase':
-            #self.model =  MobileBertModel.from_pretrained('../PreSumm/src/prev_trained_model/mobilebert')
-            self.model =  MobileBertModel.from_pretrained('google/mobilebert-uncased', cache_dir=temp_dir)
+            self.model =  MobileBertModel.from_pretrained('../PreSumm/src/prev_trained_model/mobilebert')
+            #self.model =  MobileBertModel.from_pretrained('google/mobilebert-uncased', cache_dir=temp_dir)
             
         ### End Modifying ###
 

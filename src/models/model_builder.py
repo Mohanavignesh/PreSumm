@@ -134,7 +134,7 @@ class Bert(nn.Module):
         ### End Modifying ###
 
         else:
-            self.model =  MobileBertModel.from_pretrained('../PreSumm/src/prev_trained_model/mobilebert/',cache_dir=temp_dir)
+            self.model = BertModel.from_pretrained('bert-large-uncased', cache_dir=temp_dir)
 
         self.finetune = finetune
 

@@ -26,7 +26,7 @@ from botocore.exceptions import ClientError
 from filelock import FileLock
 from tqdm.auto import tqdm
 #import importlib.util
-from . import __version__
+#from . import __version__
 #import requests
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
@@ -347,7 +347,7 @@ def s3_get(url, temp_file, proxies=None):
 
 
 def http_get(url, temp_file, proxies=None, resume_size=0, user_agent=None):
-    ua = "transformers/{}; python/{}".format(__version__, sys.version.split()[0])
+    ua = "transformers/{}; python/{}".format(transformers.__version__, python.__version__, sys.version.split()[0])
     if is_torch_available():
         ua += "; torch/{}".format(torch.__version__)
     if is_tf_available():

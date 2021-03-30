@@ -328,10 +328,10 @@ def train_abs_single(args, device_id):
 
     #tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True, cache_dir=args.temp_dir)
     tokenizer = MobileBertModel.from_pretrained('google/mobilebert-uncased',  cache_dir=args.temp_dir)
-    #symbols = {'BOS': tokenizer.vocab['[unused0]'], 'EOS': tokenizer.vocab['[unused1]'],
-               #'PAD': tokenizer.vocab['[PAD]'], 'EOQ': tokenizer.vocab['[unused2]']}
+    symbols = {'BOS': tokenizer.vocab['[unused0]'], 'EOS': tokenizer.vocab['[unused1]'],
+               'PAD': tokenizer.vocab['[PAD]'], 'EOQ': tokenizer.vocab['[unused2]']}
 
-    train_loss = abs_loss(model.generator, model.vocab_size, device, train=True,label_smoothing=args.label_smoothing)
+    train_loss = abs_loss(model.generator,symbols, model.vocab_size, device, train=True,label_smoothing=args.label_smoothing)
 
     trainer = build_trainer(args, device_id, model, optim, train_loss)
 

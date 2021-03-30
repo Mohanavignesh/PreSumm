@@ -12,7 +12,7 @@ import signal
 import time
 
 import torch
-#from transformers import BertTokenizer
+from transformers import BertTokenizer
 from model.modeling_mobilebert import MobileBertConfig, MobileBertModel
 
 import distributed

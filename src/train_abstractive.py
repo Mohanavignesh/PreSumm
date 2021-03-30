@@ -327,7 +327,7 @@ def train_abs_single(args, device_id):
     logger.info(model)
 
     #tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True, cache_dir=args.temp_dir)
-    tokenizer = MobileBertTokenizor.from_pretrained('google/mobilebert-uncased',  cache_dir=args.temp_dir)
+    tokenizer = MobileBertTokenizer.from_pretrained('google/mobilebert-uncased',  cache_dir=args.temp_dir)
     symbols = {'BOS': tokenizer.vocab['[unused0]'], 'EOS': tokenizer.vocab['[unused1]'],
                'PAD': tokenizer.vocab['[PAD]'], 'EOQ': tokenizer.vocab['[unused2]']}
 

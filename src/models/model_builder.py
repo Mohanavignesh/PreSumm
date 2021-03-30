@@ -218,12 +218,12 @@ class AbsSummarizer(nn.Module):
                 dict([(n[11:], p) for n, p in bert_from_extractive.items() if n.startswith('bert.model')]), strict=True)
 
         if (args.encoder == 'baseline'):
-            bert_config = MobileBertConfig(self.bert.model.config.vocab_size, hidden_size=args.enc_hidden_size,
+            bert_config = BertConfig(self.bert.model.config.vocab_size, hidden_size=args.enc_hidden_size,
                                      num_hidden_layers=args.enc_layers, num_attention_heads=8,
                                      intermediate_size=args.enc_ff_size,
                                      hidden_dropout_prob=args.enc_dropout,
                                      attention_probs_dropout_prob=args.enc_dropout)
-            self.bert.model = MobileBertModel(bert_config)
+            self.bert.model = BertModel(bert_config)
 
         if(args.max_pos>512):
             my_pos_embeddings = nn.Embedding(args.max_pos, self.bert.model.config.hidden_size)
